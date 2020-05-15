@@ -101,9 +101,9 @@ while getopts "hglk" opt; do
 done
 
 if [ $KITTI -eq 0 ]; then
-    CONFIG_IN_DOCKER="/root/catkin_ws/src/VINS-Fusion/$(relativePath $(absPath ..) $(absPath ${*: -1}))"
+    CONFIG_IN_DOCKER="/home/wsamer/vins-fusion_ws/src/VINS-Fusion/$(relativePath $(absPath ..) $(absPath ${*: -1}))"
 else
-    CONFIG_IN_DOCKER="/root/catkin_ws/src/VINS-Fusion/$(relativePath $(absPath ..) $(absPath ${*: -2:1}))"
+    CONFIG_IN_DOCKER="/home/wsamer/vins-fusion_ws/src/VINS-Fusion/$(relativePath $(absPath ..) $(absPath ${*: -2:1}))"
     KITTI_DATASET="$(absPath ${*: -1})"
 fi
 
@@ -122,10 +122,10 @@ if [ $KITTI -eq 0 ]; then
         -it \
         --rm \
         --net=host \
-        -v ${VINS_FUSION_DIR}:/root/catkin_ws/src/VINS-Fusion/ \
+        -v ${VINS_FUSION_DIR}:/home/wsamer/vins-fusion_ws/src/VINS-Fusion/ \
         ros:vins-fusion \
         /bin/bash -c \
-        "cd /root/catkin_ws/; \
+        "cd /home/wsamer/vins-fusion_ws/; \
         catkin config \
                 --env-cache \
                 --extend /opt/ros/$ROS_DISTRO \
@@ -139,10 +139,10 @@ if [ $KITTI -eq 0 ]; then
         -it \
         --rm \
         --net=host \
-        -v ${VINS_FUSION_DIR}:/root/catkin_ws/src/VINS-Fusion/ \
+        -v ${VINS_FUSION_DIR}:/home/wsamer/vins-fusion_ws/src/VINS-Fusion/ \
         ros:vins-fusion \
         /bin/bash -c \
-        "cd /root/catkin_ws/; \
+        "cd /home/wsamer/vins-fusion_ws/; \
         catkin config \
                 --env-cache \
                 --extend /opt/ros/$ROS_DISTRO \
@@ -159,11 +159,11 @@ else
         -it \
         --rm \
         --net=host \
-        -v ${VINS_FUSION_DIR}:/root/catkin_ws/src/VINS-Fusion/ \
+        -v ${VINS_FUSION_DIR}:/home/wsamer/vins-fusion_ws/src/VINS-Fusion/ \
         -v ${KITTI_DATASET}:/root/kitti_dataset/ \
         ros:vins-fusion \
         /bin/bash -c \
-        "cd /root/catkin_ws/; \
+        "cd /home/wsamer/vins-fusion_ws/; \
         catkin config \
                 --env-cache \
                 --extend /opt/ros/$ROS_DISTRO \
@@ -178,11 +178,11 @@ else
         -it \
         --rm \
         --net=host \
-        -v ${VINS_FUSION_DIR}:/root/catkin_ws/src/VINS-Fusion/ \
+        -v ${VINS_FUSION_DIR}:/home/wsamer/vins-fusion_ws/src/VINS-Fusion/ \
         -v ${KITTI_DATASET}:/root/kitti_dataset/ \
         ros:vins-fusion \
         /bin/bash -c \
-        "cd /root/catkin_ws/; \
+        "cd /home/wsamer/vins-fusion_ws/; \
         catkin config \
                 --env-cache \
                 --extend /opt/ros/$ROS_DISTRO \
@@ -197,11 +197,11 @@ else
         -it \
         --rm \
         --net=host \
-        -v ${VINS_FUSION_DIR}:/root/catkin_ws/src/VINS-Fusion/ \
+        -v ${VINS_FUSION_DIR}:/home/wsamer/vins-fusion_ws/src/VINS-Fusion/ \
         -v ${KITTI_DATASET}:/root/kitti_dataset/ \
         ros:vins-fusion \
         /bin/bash -c \
-        "cd /root/catkin_ws/; \
+        "cd /home/wsamer/vins-fusion_ws/; \
         catkin config \
                 --env-cache \
                 --extend /opt/ros/$ROS_DISTRO \

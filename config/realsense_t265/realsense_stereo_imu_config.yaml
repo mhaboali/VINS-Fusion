@@ -6,14 +6,14 @@ imu: 1
 num_of_cam: 2  
 
 imu_topic: "/camera/imu"
-image0_topic: "/camera/infra1/image_rect_raw"
-image1_topic: "/camera/infra2/image_rect_raw"
-output_path: "/home/wsamer/"
+image0_topic: "/camera/fisheye1/image_raw"
+image1_topic: "/camera/fisheye2/image_raw"
+output_path: "/home/wsamer/vins-fusion_ws"
 
 cam0_calib: "left.yaml"
 cam1_calib: "right.yaml"
-image_width: 640
-image_height: 480
+image_width: 848
+image_height: 800
    
 
 # Extrinsic parameter between IMU and Camera.
@@ -24,23 +24,23 @@ body_T_cam0: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ -5.7586305857286746e-03, -4.0463318787729019e-03,
-       9.9997523237933461e-01, 2.0329267950355900e-02,
-       -9.9998287214160420e-01, -1.0224590553211677e-03,
-       -5.7628118925283633e-03, 7.9325209639615653e-03,
-       1.0457519809151661e-03, -9.9999129084997906e-01,
-       -4.0403746097850135e-03, 2.8559824645148020e-03, 0., 0., 0., 1. ]
+   data: [
+        -0.99920167,  0.02660989,  0.02979823,  0.00013258,
+        -0.02618486, -0.99955102,  0.01456427, -0.00102954,
+        0.03017241,  0.01377238,  0.99944982, -0.00098432,
+        0.0, 0.0, 0.0, 1.0
+        ]
 
 body_T_cam1: !!opencv-matrix
    rows: 4
    cols: 4
    dt: d
-   data: [ -1.0021770212322867e-03, 3.6313480322730518e-04,
-       9.9999943188700535e-01, 1.5285779565991807e-02,
-       -9.9999216342926500e-01, -3.8303422615924010e-03,
-       -1.0007788055728661e-03, -5.2435791444330505e-02,
-       3.8299766679101843e-03, -9.9999259827824449e-01,
-       3.6697063849344680e-04, 8.6931302450199057e-03, 0., 0., 0., 1. ]
+   data: [
+        -0.99940739,  0.02358804,  0.02506927, -0.06382506,
+        -0.02311628, -0.99955327,  0.01894448, -0.00286131,
+        0.02550493,  0.01835374,  0.99950620,  0.00096580,
+        0.0, 0.0, 0.0, 1.0
+        ]
 
 #Multiple thread support
 multiple_thread: 1
@@ -71,5 +71,5 @@ td: 0.00                             # initial value of time offset. unit: s. re
 
 #loop closure parameters
 load_previous_pose_graph: 0        # load and reuse previous pose graph; load from 'pose_graph_save_path'
-pose_graph_save_path: "/home/dji/output/pose_graph/" # save and load path
+pose_graph_save_path: "/home/wsamer/vins-fusion_ws/paths/" # save and load path
 save_image: 0                   # save image in pose graph for visualization prupose; you can close this function by setting 0 

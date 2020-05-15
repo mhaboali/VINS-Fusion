@@ -1,0 +1,16 @@
+%YAML:1.0
+---
+model_type: FISHEYE #PINHOLE
+camera_name: camera
+image_width: 848
+image_height: 800
+distortion_parameters:
+   k1: -0.006601389878082893
+   k2: 0.06285624670204437
+   p1: -0.06624718433022161
+   p2: 0.016178100033794867
+projection_parameters:
+   fx: 287.2648972756499
+   fy: 417.53890746140695
+   cx: 287.5526675605301
+   cy: 399.1202543659908
